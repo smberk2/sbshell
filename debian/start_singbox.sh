@@ -69,6 +69,7 @@ start_singbox() {
 
 # 提示用户确认是否启动
 read -rp "是否启动 sing-box?(y/n): " confirm_start
+confirm_start=${confirm_start:-Y}
 if [[ "$confirm_start" =~ ^[Yy]$ ]]; then
     start_singbox
 else
