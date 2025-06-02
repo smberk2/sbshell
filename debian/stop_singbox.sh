@@ -18,6 +18,7 @@ stop_singbox() {
 
         # 提示用户确认是否清理防火墙规则
         read -rp "是否清理防火墙规则？(y/n): " confirm_cleanup
+        confirm_cleanup=${confirm_cleanup:-Y}
         if [[ "$confirm_cleanup" =~ ^[Yy]$ ]]; then
             echo -e "${CYAN}执行清理防火墙规则...${NC}"
             bash "$SCRIPT_DIR/clean_nft.sh"
@@ -33,6 +34,7 @@ stop_singbox() {
 
 # 提示用户确认是否停止
 read -rp "是否停止 sing-box?(y/n): " confirm_stop
+confirm_stop=${confirm_stop:-Y}
 if [[ "$confirm_stop" =~ ^[Yy]$ ]]; then
     stop_singbox
 else
